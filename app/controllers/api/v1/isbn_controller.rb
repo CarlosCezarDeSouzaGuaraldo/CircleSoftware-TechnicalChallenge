@@ -1,3 +1,5 @@
+require 'active_model'
+
 class Api::V1::IsbnController < ApplicationController
     
     def index
@@ -5,14 +7,21 @@ class Api::V1::IsbnController < ApplicationController
 
     def show
 
-        @isbn = params[:id]
+        isbn = Isbn.new(id: params[:id])
 
-        if !ValidationService.is_numeric?(@isbn)
-            return render json: "The '#{@isbn}' parameter isn't a number."
+        # check if the 'id' parameter exists
+        unless isbn.valid?
+            return render json: isbn.errors.full_messages.first
         end
 
-        if !ValidationService.valid_number?(@isbn)
-            return render json: "The '#{@isbn}' parameter must have #{ValidationService::CHAR_COUNT} characters."
+        # check if the 'id' parameter is numeric
+        unless isbn.numericality?
+            return render json: isbn.errors.full_messages.first
+        end
+
+        # check if the 'id' parameter is a valid number
+        unless isbn.length?
+            return render json: isbn.errors.full_messages.first
         end
 
         render json: @isbn
