@@ -1,29 +1,25 @@
-require 'active_model'
+require "#{Rails.root}/lib/isbn_calculator.rb"
+require "#{Rails.root}/lib/validation_result.rb"
 
 class Api::V1::IsbnController < ApplicationController
-    
-    def index
-    end
 
     def show
 
-        isbn = Isbn.new(id: params[:id])
+        isbn = Isbn.new()
+        isbn.input = params[:id]
 
-        # check if the 'id' parameter exists
-        unless isbn.valid?
-            return render json: isbn.errors.full_messages.first
+        # check if the param's value is valid and return a message error and status code
+        param = ValidationService.valid?(isbn.input)
+        unless param.valid
+            return render json: { error: param.message }, status: param.status
         end
 
-        # check if the 'id' parameter is numeric
-        unless isbn.numericality?
-            return render json: isbn.errors.full_messages.first
-        end
+        # calculate the checksum
+        checksum = IsbnCalculator.calculate_checksum(isbn.input)
 
-        # check if the 'id' parameter is a valid number
-        unless isbn.length?
-            return render json: isbn.errors.full_messages.first
-        end
+        isbn.digit = checksum
+        isbn.output = "#{isbn.input}#{isbn.digit}"
 
-        render json: @isbn
+        return render json: isbn
     end
 end
