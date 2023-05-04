@@ -1,6 +1,6 @@
 module IsbnCalculator
     def self.calculate_checksum(isbn)
-  
+
         # inital checksum's sum value
         checksum = 0
 
@@ -16,7 +16,7 @@ module IsbnCalculator
         # calculate the checksum digit, which is the difference between the checksum and the next multiple of 10
         checksum_digit = 10 - (checksum % 10)
         checksum_digit = 0 if checksum_digit == 10
-  
+
         return checksum_digit
     end
 end
