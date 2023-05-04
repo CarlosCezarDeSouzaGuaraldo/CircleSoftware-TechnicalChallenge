@@ -1,5 +1,5 @@
 require "#{Rails.root}/lib/utilities/isbn_calculator.rb"
-require "#{Rails.root}/lib/utilities/validation_result.rb"
+require "#{Rails.root}/lib/utilities/validation.rb"
 
 class Api::V1::IsbnController < ApplicationController
 
@@ -11,7 +11,8 @@ class Api::V1::IsbnController < ApplicationController
         # check if the param's value is valid and return a message error and status code
         param = Isbn.valid?(isbn.input)
         unless param.valid
-            return render json: { error: param.message }, status: param.status
+            render json: { error: param.message }, status: param.status
+            return
         end
 
         # calculate the checksum
@@ -20,6 +21,6 @@ class Api::V1::IsbnController < ApplicationController
         isbn.digit = checksum
         isbn.output = "#{isbn.input}#{isbn.digit}"
 
-        return render json: isbn
+        render json: isbn
     end
 end
