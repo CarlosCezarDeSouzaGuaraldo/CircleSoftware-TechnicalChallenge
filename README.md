@@ -18,13 +18,15 @@ Before running the project, make sure the following tools are installed on your 
 
 * Ruby
 * Rails
-* Git (optional)
+* Git
 
 Next, run the following commands in your terminal to clone the project and install the dependencies:
 
 ```console
 $ git clone https://github.com/CarlosCezarDeSouzaGuaraldo/CircleSoftware-TechnicalChallenge.git
+
 $ cd CircleSoftware-TechnicalChallenge
+
 $ bundle install
 ```
 
