@@ -2,6 +2,10 @@
 
 CircleSoftware-TechnicalChallenge is a web application developed with Ruby on Rails to generate the last digit of a 13-character ISBN code, from the first 12 digits entered by the user.
 
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/66181262/236372115-0b94c85a-2840-484d-89f0-8214e7970430.png" width="400"/>
+</div>
+
 ## Languages and Libraries Used:
 
 * Ruby 3.0.2
@@ -24,6 +28,15 @@ $ cd CircleSoftware-TechnicalChallenge
 $ bundle install
 ```
 
+## Testing the Application
+
+To run automated tests, simply execute the following command in the terminal:
+```console
+$ rspec
+```
+
+That will run all automated tests in the project and show the results in the terminal. Make sure all tests have passed before making any changes to the code or deploying to production.
+
 ## Running the Project
 
 To run the project, simply run the following command in the terminal:
@@ -37,12 +50,3 @@ This will start the local server on port 3000. To access the project, simply ope
 `http://localhost:3000/api/v1/isbn/:id`
 
 > The **`:id`** parameter is the first 12 digits provided by the user.
-
-## Testing the Application
-
-To run automated tests, simply execute the following command in the terminal:
-```console
-$ rspec
-```
-
-That will run all automated tests in the project and show the results in the terminal. Make sure all tests have passed before making any changes to the code or deploying to production.
