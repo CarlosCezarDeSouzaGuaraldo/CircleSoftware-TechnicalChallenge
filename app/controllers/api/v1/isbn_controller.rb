@@ -9,7 +9,7 @@ class Api::V1::IsbnController < ApplicationController
         isbn.input = params[:id]
 
         # check if the param's value is valid and return a message error and status code
-        param = Isbn.is_valid_isbn?(isbn.input)
+        param = Isbn.isValidIsbn?(isbn.input)
         unless param.valid
             render json: { error: param.message }, status: param.status
             return
@@ -21,6 +21,8 @@ class Api::V1::IsbnController < ApplicationController
         isbn.digit = checksum
         isbn.generate_output(isbn.input, isbn.digit)
 
-        render json: isbn
+        render json: {
+            isbn: isbn.output
+        }
     end
 end

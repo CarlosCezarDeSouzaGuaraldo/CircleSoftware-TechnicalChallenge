@@ -9,7 +9,7 @@ class Isbn
     # validates the provided ISBN number
     # @param isbn [String] the ISBN number to validate
     # @return [Validation] a validation result object
-    def self.is_valid_isbn?(isbn)
+    def self.isValidIsbn?(isbn)
         return Validation.new(Validation::INVALID, "ISBN cannot be null.", Validation::UNPROCESSABLE_ENTITY) if isbn.nil?
         return Validation.new(Validation::INVALID, "ISBN cannot be empty.", Validation::UNPROCESSABLE_ENTITY) if isbn.to_s.strip.empty?
         return Validation.new(Validation::INVALID, "ISBN can only contain numbers.", Validation::UNPROCESSABLE_ENTITY) if isbn !~ /\A\d+\z/
