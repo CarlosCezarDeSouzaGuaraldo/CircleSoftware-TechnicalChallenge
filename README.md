@@ -7,7 +7,7 @@ CircleSoftware-TechnicalChallenge is a web application developed with Ruby on Ra
     <tr>
         <td>You can use the application through Postman (or Insomnia) :hammer_and_wrench:</td>
         <td>OR</td>
-        <td>You can use the application through your browser :earth_asia:</td>
+        <td>You can use the application through your browser</td>
     </tr>
     <tr>
       <td><img src="https://user-images.githubusercontent.com/66181262/236668095-889c91a0-8895-4ef0-aa15-51c451145b50.png" width="500"/></td>
