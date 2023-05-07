@@ -3,7 +3,18 @@
 CircleSoftware-TechnicalChallenge is a web application developed with Ruby on Rails to generate the last digit of a 13-character ISBN code, from the first 12 digits entered by the user.
 
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/66181262/236372115-0b94c85a-2840-484d-89f0-8214e7970430.png" width="400"/>
+  <table>
+    <tr>
+        <td>You can use the application through Postman (or Insomnia) :hammer_and_wrench:</td>
+        <td>OR</td>
+        <td>You can use the application through your browser :earth_asia:</td>
+    </tr>
+    <tr>
+      <td><img src="https://user-images.githubusercontent.com/66181262/236668095-889c91a0-8895-4ef0-aa15-51c451145b50.png" width="500"/></td>
+      <td></td>
+      <td><img src="https://user-images.githubusercontent.com/66181262/236372115-0b94c85a-2840-484d-89f0-8214e7970430.png" width="500"/></td>
+    </tr>
+  </table>
 </div>
 
 ## Languages and Libraries Used: :books:
@@ -19,6 +30,7 @@ Before running the project, make sure the following tools are installed on your 
 * Ruby
 * Rails
 * Git
+* Postman or Insomnia (optional)
 
 Next, run the following commands in your terminal to clone the project and install the dependencies:
 
@@ -47,7 +59,7 @@ To run the project, simply run the following command in the terminal:
 $ rails s
 ```
 
-This will start the local server on port 3000. To access the project, simply open your browser and type the following URL: 
+This will start the local server on port 3000. To access the project, simply open your testing program or browser and type the following URL:
 
 `http://localhost:3000/api/v1/isbn/:id`
 
